@@ -23,14 +23,14 @@ in {
     };
 
     chunkSize = mkOption {
-      type = str;
+      type = int;
       description =
         "Size of chunks into which to break text documents for processing, in tokens.";
       default = 2048;
     };
 
     chunkOverlap = mkOption {
-      type = str;
+      type = int;
       description =
         "Number of tokens for which the chunks should overlap, for shared context.";
       default = 256;
