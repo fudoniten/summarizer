@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
-with lib; {
+with lib;
+let cfg = config.fudo.summarizer;
+in {
   options.fudo.summarizer = with types; {
     enable = mkEnableOption "Add summarizer to the system.";
 
@@ -43,5 +45,7 @@ with lib; {
         "$@"
       ];
     };
-  in { environment.systemPackages = [ summarizerWithParams ]; };
+  in {
+    environment.systemPackages = optionals cfg.enable [ summarizerWithParams ];
+  };
 }
