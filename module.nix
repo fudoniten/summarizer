@@ -47,7 +47,7 @@ in {
         "--model ${cfg.model}"
         "--chunk_size ${toString cfg.chunkSize}"
         "--overlap ${toString cfg.chunkOverlap}"
-        "$@"
+        ''"$@"''
       ];
     };
   in {
