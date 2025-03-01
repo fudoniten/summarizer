@@ -1,3 +1,5 @@
+{ summarizer }:
+
 { config, lib, pkgs, ... }:
 
 with lib;
@@ -36,10 +38,8 @@ in {
     summarizerWithParams = pkgs.writeShellApplication {
       name = "summarize";
 
-      runtimeInputs = [ summarizer ];
-
       text = concatStringsSep " " [
-        "${summarizer}/bin/summarizer"
+        "${pkgs.summarizer}/bin/summarizer"
         "--server ${cfg.ollamaServer}"
         "--model ${cfg.model}"
         "--chunk_size ${toString cfg.chunkSize}"
