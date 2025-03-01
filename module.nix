@@ -42,6 +42,8 @@ in {
         "${summarizer}/bin/summarizer"
         "--server ${cfg.ollamaServer}"
         "--model ${cfg.model}"
+        "--chunk_size ${toString cfg.chunkSize}"
+        "--overlap ${toString cfg.chunkOverlap}"
         "$@"
       ];
     };
