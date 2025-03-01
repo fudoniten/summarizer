@@ -6,7 +6,7 @@ with lib;
 let
   cfg = config.fudo.summarizer;
 
-  summarizer = localPkgs."${pkgs.system}";
+  summarizer = localPkgs."${pkgs.system}".summarizer;
 in {
   options.fudo.summarizer = with types; {
     enable = mkEnableOption "Add summarizer to the system.";

@@ -8,7 +8,7 @@
     utils.lib.eachDefaultSystem (system:
       let pkgs = nixpkgs.legacyPackages."${system}";
       in {
-        packages = { summarizer = pkgs.callPackage ./summarizer.nix { }; };
+        packages.summarizer = pkgs.callPackage ./summarizer.nix { };
 
         devShells = {
           default = pkgs.mkShell {
