@@ -1,9 +1,12 @@
-{ summarizer }:
+localPkgs:
 
 { config, lib, pkgs, ... }:
 
 with lib;
-let cfg = config.fudo.summarizer;
+let
+  cfg = config.fudo.summarizer;
+
+  summarizer = localPkgs."${pkgs.system}";
 in {
   options.fudo.summarizer = with types; {
     enable = mkEnableOption "Add summarizer to the system.";
@@ -39,7 +42,7 @@ in {
       name = "summarize";
 
       text = concatStringsSep " " [
-        "${pkgs.summarizer}/bin/summarizer"
+        "${summarizer}/bin/summarizer"
         "--server ${cfg.ollamaServer}"
         "--model ${cfg.model}"
         "--chunk_size ${toString cfg.chunkSize}"

@@ -19,8 +19,7 @@
         nixosModules = rec {
           default = summarizer;
           summarizer = {
-            overlays = [ self.overlays.summarizer ];
-            imports = [ ./nix.module ];
+            imports = [ (import ./nix.module self.packages) ];
             config.nixpkgs.overlays = [ self.overlays.summarizer ];
           };
         };
