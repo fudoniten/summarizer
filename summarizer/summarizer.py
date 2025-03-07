@@ -179,7 +179,7 @@ def main():
       refine_prompt=refine_prompt)
 
   if args.verbose:
-    print(f"summarizing the contents of file {args.filename} with the model {ollama_model}, with the instructions: {args.instructions}...")
+    print(f"summarizing the contents of file {args.filename} with the model {ollama_model}...")
 
   applied_callbacks = [PrintProgressCallback()] if args.verbose else []
   summary = summarization_chain.invoke(split_docs, callbacks=applied_callbacks)
