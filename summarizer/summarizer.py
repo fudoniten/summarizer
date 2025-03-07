@@ -45,7 +45,7 @@ parser.add_argument('-s', '--merge-instructions', type=str,
 parser.add_argument('-S', '--merge-instructions-file', type=str,
                     help="file containing instructions on how the enhance or integration step should combine documents (during the refine/reduce step).")
 parser.add_argument('-m', '--model', type=str, help='model to use by ollama.')
-parser.add_argument('-S', '--chunk-size', type=int,
+parser.add_argument('-c', '--chunk-size', type=int,
                      help='size of chunks to break text into for summary.', default=1900)
 parser.add_argument('-o', '--overlap', type=int,
                      help='size of overlap between chunks, to provide shared context.',
